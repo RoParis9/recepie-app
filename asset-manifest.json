@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/recepie-app/static/js/main.e33c3578.chunk.js",
+    "main.js.map": "/recepie-app/static/js/main.e33c3578.chunk.js.map",
+    "runtime-main.js": "/recepie-app/static/js/runtime-main.00e28683.js",
+    "runtime-main.js.map": "/recepie-app/static/js/runtime-main.00e28683.js.map",
+    "static/js/2.0276947a.chunk.js": "/recepie-app/static/js/2.0276947a.chunk.js",
+    "static/js/2.0276947a.chunk.js.map": "/recepie-app/static/js/2.0276947a.chunk.js.map",
+    "index.html": "/recepie-app/index.html",
+    "static/js/2.0276947a.chunk.js.LICENSE.txt": "/recepie-app/static/js/2.0276947a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.00e28683.js",
+    "static/js/2.0276947a.chunk.js",
+    "static/js/main.e33c3578.chunk.js"
+  ]
+}
