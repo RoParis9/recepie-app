@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import { useState } from 'react';
+import { GlobalStyle } from './GlobalStyle';
+import Recipe from './components/Recipe/Recipe';
+import Header from './components/Header/Header';
+import { Container } from './components/style/InputContainer';
+import { ItemContainers } from './components/style/RecepiesRender';
 
 function App() {
+  const [userRecipe, setUserRecipe] = useState('');
+  const [recipes, setRecipes] = useState([]);
+
+  const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipe}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
+
+
+  const getData = async() =>{
+    const response = await axios.get(URL)
+    setRecipes(response.data.hits)
+    console.log(response)
+  }
+
+  const handleChange = (e) =>{
+    setUserRecipe(e.target.value)
+
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header />
+      <Container>
+        <input
+        type="text"
+        placeholder="enter the main ingredient"
+        onChange={handleChange}
+        />
+
+        <button onClick={getData}>
+            <i className="fas fa-search"></i>
+        </button>
+
+      </Container>
+
+      <ItemContainers>
+        {recipes !== [] && recipes.map((recipe) => {
+          return <Recipe recipe={recipe.recipe} />
+        })}
+      </ItemContainers>
+    </>
   );
 }
 
